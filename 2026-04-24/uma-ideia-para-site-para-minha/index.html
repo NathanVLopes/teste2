@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Clara | Gastos da Familia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">Controle da familia</p>
+        <h1>Saibam quanto gastaram no mes sem planilhas complicadas.</h1>
+        <p class="hero__lead">
+          Adicione gastos por categoria, veja o total do mes e descubra para onde o dinheiro esta indo.
+        </p>
+      </div>
+
+      <section class="hero__summary" aria-label="Resumo rapido">
+        <div class="mini-card">
+          <span>Total do mes</span>
+          <strong id="hero-total">R$ 0,00</strong>
+        </div>
+        <div class="mini-card">
+          <span>Categoria com mais gasto</span>
+          <strong id="hero-top-category">Sem dados</strong>
+        </div>
+        <div class="mini-card">
+          <span>Ultimo lancamento</span>
+          <strong id="hero-last-entry">Nenhum ainda</strong>
+        </div>
+      </section>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel panel--form">
+        <div class="section-heading">
+          <p class="section-kicker">Novo gasto</p>
+          <h2>Adicionar despesa</h2>
+        </div>
+
+        <form id="expense-form" class="expense-form">
+          <input type="hidden" id="expense-id">
+
+          <label>
+            Valor
+            <input id="amount" name="amount" type="number" min="0" step="0.01" placeholder="Ex.: 120.50" required>
+          </label>
+
+          <label>
+            Categoria
+            <select id="category" name="category" required>
+              <option value="">Escolha</option>
+              <option value="Agua">Agua</option>
+              <option value="Luz">Luz</option>
+              <option value="Mercado">Mercado</option>
+              <option value="Aluguel">Aluguel</option>
+              <option value="Contas">Contas</option>
+              <option value="Carro">Carro</option>
+              <option value="Combustivel">Combustivel</option>
+              <option value="IPVA">IPVA</option>
+              <option value="Licenciamento">Licenciamento</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saude">Saude</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Escola">Escola</option>
+              <option value="Outros">Outros</option>
+              <option value="__custom__">Escrever outra categoria</option>
+            </select>
+          </label>
+
+          <label id="custom-category-field" hidden>
+            Escreva a categoria
+            <input id="custom-category" name="custom-category" type="text" maxlength="40" placeholder="Ex.: Farmacia">
+          </label>
+
+          <label>
+            Quem gastou
+            <input id="person" name="person" type="text" maxlength="40" placeholder="Ex.: Maria" required>
+          </label>
+
+          <label>
+            Data
+            <input id="date" name="date" type="date" required>
+          </label>
+
+          <label class="full-width">
+            Observacao
+            <textarea id="note" name="note" rows="3" placeholder="Ex.: compra da semana"></textarea>
+          </label>
+
+          <div class="form-actions full-width">
+            <button type="submit" class="button button--primary" id="submit-button">Salvar gasto</button>
+            <button type="button" class="button button--ghost" id="cancel-edit" hidden>Cancelar edicao</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="stats-grid" aria-label="Resumo financeiro">
+        <article class="panel stat-card">
+          <p>Gastos do mes</p>
+          <strong id="monthly-total">R$ 0,00</strong>
+        </article>
+        <article class="panel stat-card">
+          <p>Quantidade de gastos</p>
+          <strong id="expense-count">0</strong>
+        </article>
+        <article class="panel stat-card">
+          <p>Maior gasto</p>
+          <strong id="largest-expense">R$ 0,00</strong>
+        </article>
+      </section>
+
+      <section class="panel filters">
+        <div class="section-heading">
+          <p class="section-kicker">Filtro</p>
+          <h2>Veja um mes especifico</h2>
+        </div>
+
+        <label class="filter-control">
+          Mes
+          <input id="month-filter" type="month">
+        </label>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <p class="section-kicker">Categorias</p>
+          <h2>Quanto foi gasto em cada area</h2>
+        </div>
+        <div id="category-breakdown" class="category-breakdown"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <p class="section-kicker">Lancamentos</p>
+          <h2>Lista de gastos</h2>
+        </div>
+        <div id="expense-list" class="expense-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="expense-item-template">
+    <article class="expense-item">
+      <div class="expense-item__head">
+        <div>
+          <p class="expense-item__category"></p>
+          <strong class="expense-item__amount"></strong>
+        </div>
+        <div class="expense-item__actions">
+          <button type="button" class="button button--small button--ghost action-edit">Editar</button>
+          <button type="button" class="button button--small button--danger action-delete">Excluir</button>
+        </div>
+      </div>
+      <div class="expense-item__meta"></div>
+      <p class="expense-item__note"></p>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

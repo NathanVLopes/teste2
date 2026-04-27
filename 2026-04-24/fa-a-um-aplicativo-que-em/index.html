@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify | Por que usar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Spotify, início">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Spotify</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#motivos">Motivos</a>
+        <a href="#momentos">Momentos</a>
+        <a href="#experiencia">Experiência</a>
+      </nav>
+
+      <a class="nav-action" href="#momentos">
+        <span class="play-dot" aria-hidden="true"></span>
+        Descobrir
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-label="Apresentação Spotify">
+        <canvas id="soundCanvas" aria-hidden="true"></canvas>
+
+        <div class="hero-scene" aria-hidden="true">
+          <div class="vinyl-ring ring-one"></div>
+          <div class="vinyl-ring ring-two"></div>
+          <div class="floating-tag tag-top">Daily Mix</div>
+          <div class="floating-tag tag-bottom">Podcast</div>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Música, podcasts e descobertas em um só fluxo</p>
+          <h1>Spotify</h1>
+          <p class="hero-text">
+            Uma experiência feita para transformar qualquer momento em trilha:
+            recomendações vivas, playlists que entendem seu ritmo e áudio que
+            acompanha você em qualquer tela.
+          </p>
+
+          <div class="hero-actions" aria-label="Ações da apresentação">
+            <a class="primary-button magnetic" href="#motivos">
+              Por que usar
+              <span class="button-icon" aria-hidden="true"></span>
+            </a>
+            <a class="ghost-button magnetic" href="#momentos">Criar clima</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="Destaques">
+            <div>
+              <strong>100M+</strong>
+              <span>faixas e episódios</span>
+            </div>
+            <div>
+              <strong>24h</strong>
+              <span>do seu jeito</span>
+            </div>
+            <div>
+              <strong>1 toque</strong>
+              <span>para descobrir</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-stage reveal">
+          <article class="spotify-phone" aria-label="Prévia visual do aplicativo">
+            <div class="phone-shell">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="status-icons">● ● ●</span>
+              </div>
+
+              <div class="app-header">
+                <div>
+                  <span class="tiny-label">Agora</span>
+                  <h2 id="phoneTitle">Seu flow diário</h2>
+                </div>
+                <button class="icon-button" type="button" aria-label="Curtir playlist">
+                  <span class="heart-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="album-hero" id="albumHero">
+                <div class="album-glow"></div>
+                <div class="album-cover">
+                  <span class="album-disc"></span>
+                  <span class="album-wave wave-a"></span>
+                  <span class="album-wave wave-b"></span>
+                  <span class="album-wave wave-c"></span>
+                </div>
+              </div>
+
+              <div class="now-playing">
+                <div>
+                  <span class="tiny-label">Tocando</span>
+                  <h3 id="nowTrack">Neon da Manhã</h3>
+                  <p id="nowArtist">Mix personalizado</p>
+                </div>
+                <button class="play-button" type="button" aria-label="Reproduzir prévia">
+                  <span></span>
+                </button>
+              </div>
+
+              <div class="wave-equalizer" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="track-list" id="trackList"></div>
+            </div>
+          </article>
+        </div>
+
+        <a class="scroll-cue" href="#motivos" aria-label="Ir para os motivos">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="section why-section" id="motivos">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Por que usar</p>
+          <h2>O áudio certo aparece antes do silêncio chegar</h2>
+          <p>
+            O Spotify combina descoberta, praticidade e companhia em uma
+            interface que se adapta ao seu dia sem pedir esforço.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon discover-icon" aria-hidden="true"></div>
+            <h3>Descobertas que parecem suas</h3>
+            <p>
+              Mixes, rádios e recomendações aprendem com seu gosto e renovam a
+              sensação de achar uma faixa perfeita no momento exato.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon device-icon" aria-hidden="true"></div>
+            <h3>Continuidade em todo lugar</h3>
+            <p>
+              Comece no celular, continue no notebook, envie para a TV ou caixa
+              de som e mantenha o clima sem quebrar o fluxo.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon podcast-icon" aria-hidden="true"></div>
+            <h3>Música e conteúdo no mesmo espaço</h3>
+            <p>
+              Playlists, podcasts, audiolivros e episódios vivem juntos para
+              alternar entre foco, entretenimento e inspiração.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon control-icon" aria-hidden="true"></div>
+            <h3>Controle sem atrito</h3>
+            <p>
+              Filtros, fila, letras, downloads e qualidade de áudio deixam a
+              experiência mais pessoal, rápida e confortável.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section mood-section" id="momentos">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Momentos</p>
+          <h2>Escolha um clima e veja a experiência ganhar cor</h2>
+          <p>
+            Cada modo muda a capa, as faixas e o pulso visual da página, como
+            uma playlist moldada para o seu estado de espírito.
+          </p>
+        </div>
+
+        <div class="mood-lab">
+          <div class="mood-panel reveal">
+            <div class="segmented-control" aria-label="Escolha de clima musical">
+              <button class="mood-button active" type="button" data-mood="focus">
+                Foco
+              </button>
+              <button class="mood-button" type="button" data-mood="run">
+                Treino
+              </button>
+              <button class="mood-button" type="button" data-mood="road">
+                Viagem
+              </button>
+              <button class="mood-button" type="button" data-mood="night">
+                Noite
+              </button>
+            </div>
+
+            <div class="mood-copy">
+              <span class="tiny-label">Clima ativo</span>
+              <h3 id="moodTitle">Foco profundo</h3>
+              <p id="moodDescription">
+                Batidas leves, textura limpa e energia estável para entrar no
+                trabalho sem perder o fôlego.
+              </p>
+            </div>
+
+            <label class="energy-control" for="energyRange">
+              <span>Energia</span>
+              <input id="energyRange" type="range" min="1" max="10" value="5" />
+              <strong id="energyValue">5</strong>
+            </label>
+          </div>
+
+          <div class="playlist-board reveal">
+            <div class="board-header">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span id="boardKicker">Mix para concentração</span>
+            </div>
+            <div class="playlist-rows" id="playlistRows"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experiencia">
+        <div class="experience-copy reveal">
+          <p class="eyebrow">Experiência</p>
+          <h2>Leve, social e sempre em movimento</h2>
+          <p>
+            O melhor motivo para usar Spotify não é só ter catálogo. É sentir
+            que o aplicativo entende o próximo passo, abre espaço para explorar
+            e deixa sua música circular com naturalidade.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-item reveal">
+            <span>01</span>
+            <h3>Playlists para cada versão do seu dia</h3>
+            <p>Do foco silencioso à festa espontânea, tudo muda de ritmo sem perder identidade.</p>
+          </article>
+          <article class="experience-item reveal">
+            <span>02</span>
+            <h3>Compartilhamento que vira conversa</h3>
+            <p>Faixas, retrospectivas, blends e links deixam o gosto musical mais vivo entre pessoas.</p>
+          </article>
+          <article class="experience-item reveal">
+            <span>03</span>
+            <h3>Design pensado para tocar e seguir</h3>
+            <p>Controles diretos e respostas rápidas fazem a música parecer sempre à mão.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-section">
+        <div class="final-content reveal">
+          <p class="eyebrow">Sua próxima trilha</p>
+          <h2>Abra o Spotify e deixe o dia encontrar uma batida.</h2>
+          <a class="primary-button magnetic" href="#inicio">
+            Voltar ao topo
+            <span class="button-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Conceito visual criado para estudo, sem vínculo oficial com o Spotify.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
