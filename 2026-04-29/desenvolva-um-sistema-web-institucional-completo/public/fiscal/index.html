@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NAVETRAN | Fiscalização</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main id="loginPage" class="login-page">
+      <section class="login-panel">
+        <div class="brand-block">
+          <span class="brand-mark">NV</span>
+          <div>
+            <strong>NAVETRAN</strong>
+            <small>Prefeitura de Navegantes</small>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Módulo de fiscalização</p>
+          <h1>Validação de ACA e PIA</h1>
+        </div>
+        <form id="loginForm" class="grid">
+          <div class="field">
+            <label for="loginUser">Usuário</label>
+            <input id="loginUser" autocomplete="username" value="agente" required />
+          </div>
+          <div class="field">
+            <label for="loginPass">Senha</label>
+            <input id="loginPass" type="password" autocomplete="current-password" value="Fiscal@2026" required />
+          </div>
+          <button class="btn" type="submit">Entrar</button>
+          <div id="loginMessage" class="message"></div>
+        </form>
+      </section>
+      <section class="login-hero">
+        <p class="eyebrow">Consulta exclusiva para agentes</p>
+        <h1>Validação rápida em campo por QR Code, placa, CPF ou identificador.</h1>
+      </section>
+    </main>
+
+    <main id="fiscalShell" class="fiscal-shell hidden">
+      <header class="fiscal-header">
+        <div class="fiscal-header-inner">
+          <div class="brand-block">
+            <span class="brand-mark">NV</span>
+            <div>
+              <strong>Fiscalização NAVETRAN</strong>
+              <small id="agentName">Agente</small>
+            </div>
+          </div>
+          <button id="logoutButton" class="btn secondary" type="button">Sair</button>
+        </div>
+      </header>
+
+      <section class="fiscal-main">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Leitura de QR Code</h2>
+              <p>Câmera do dispositivo ou token da credencial.</p>
+            </div>
+            <button id="cameraButton" class="btn" type="button">Ativar câmera</button>
+          </div>
+          <div id="scanner" class="scanner">
+            <div class="scanner-status" id="scannerStatus">Câmera inativa</div>
+            <video id="scannerVideo" playsinline muted class="hidden"></video>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Consulta manual</h2>
+              <p>PIA, CPF ou identificador do condutor.</p>
+            </div>
+          </div>
+          <form id="manualForm" class="compact-actions">
+            <div class="grid two">
+              <div class="field">
+                <label>Tipo</label>
+                <select id="searchType">
+                  <option value="pia">Placa PIA</option>
+                  <option value="cpf">CPF</option>
+                  <option value="condutor">Identificador</option>
+                  <option value="token">Token QR</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Consulta</label>
+                <input id="searchValue" required />
+              </div>
+            </div>
+            <button class="btn" type="submit">Consultar</button>
+          </form>
+          <div id="manualMessage" class="message"></div>
+        </div>
+
+        <div id="resultPanel" class="panel result-card hidden">
+          <div class="panel-header">
+            <div>
+              <h2 id="resultTitle">Resultado</h2>
+              <p id="resultMeta"></p>
+            </div>
+            <span id="resultBadge" class="badge"></span>
+          </div>
+          <div id="resultContent"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/fiscal/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "navetran-aca-remia-pia",
+  "version": "1.0.0",
+  "description": "Sistema institucional NAVETRAN para ACA, REMIA, PIA e fiscalizacao.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check src/config.js && node --check src/security.js && node --check src/db.js && node --check src/routes-admin.js && node --check src/routes-fiscal.js"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
