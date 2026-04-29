@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NAVETRAN | Administrativo ACA REMIA PIA</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main id="loginPage" class="login-page">
+      <section class="login-panel">
+        <div class="brand-block">
+          <span class="brand-mark">NV</span>
+          <div>
+            <strong>NAVETRAN</strong>
+            <small>Prefeitura de Navegantes</small>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Módulo administrativo</p>
+          <h1>Gestão de ACA, REMIA e PIA</h1>
+        </div>
+        <form id="loginForm" class="grid">
+          <div class="field">
+            <label for="loginUser">Usuário</label>
+            <input id="loginUser" autocomplete="username" value="admin" required />
+          </div>
+          <div class="field">
+            <label for="loginPass">Senha</label>
+            <input id="loginPass" type="password" autocomplete="current-password" value="Navetran@2026" required />
+          </div>
+          <button class="btn" type="submit">Entrar</button>
+          <div id="loginMessage" class="message"></div>
+        </form>
+      </section>
+      <section class="login-hero">
+        <p class="eyebrow">Autorização e registro municipal</p>
+        <h1>Controle institucional para condutores e equipamentos autopropelidos.</h1>
+      </section>
+    </main>
+
+    <main id="appShell" class="app-shell hidden">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <span class="brand-mark">NV</span>
+          <div>
+            <strong>NAVETRAN</strong>
+            <small>Administração</small>
+          </div>
+        </div>
+        <nav class="nav-list" aria-label="Navegação administrativa">
+          <button class="nav-btn active" data-view="dashboard">Painel</button>
+          <button class="nav-btn" data-view="conductors">Condutores ACA</button>
+          <button class="nav-btn" data-view="equipment">REMIA e PIA</button>
+          <button class="nav-btn" data-view="credential">Credencial</button>
+          <button class="nav-btn" data-view="logs">Logs</button>
+        </nav>
+        <div class="sidebar-footer">
+          <div id="userChip" class="user-chip"></div>
+          <a class="btn secondary" href="/fiscal/" target="_blank" rel="noreferrer">Abrir fiscalização</a>
+          <button id="logoutButton" class="btn ghost" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Sistema institucional</p>
+            <h1 id="viewTitle">Painel</h1>
+          </div>
+          <span id="statusBadge" class="badge">Ambiente local</span>
+        </header>
+
+        <section id="dashboard" class="section active">
+          <div id="dashboardNotice" class="notice"></div>
+          <div id="statsGrid" class="grid four"></div>
+          <div class="panel" style="margin-top: 16px">
+            <div class="panel-header">
+              <div>
+                <h2>Atividade recente</h2>
+                <p>Registros de acesso e operações do sistema.</p>
+              </div>
+            </div>
+            <div id="recentLogs" class="list"></div>
+          </div>
+        </section>
+
+        <section id="conductors" class="section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Cadastro de condutor</h2>
+                <p>Dados pessoais, filiação, foto, documento e residência.</p>
+              </div>
+            </div>
+            <form id="conductorForm" class="form-grid">
+              <div class="field span-2">
+                <label>Nome completo</label>
+                <input name="name" required />
+              </div>
+              <div class="field">
+                <label>Data de nascimento</label>
+                <input name="birth_date" type="date" required />
+              </div>
+              <div class="field">
+                <label>CPF</label>
+                <input name="cpf" inputmode="numeric" required />
+              </div>
+              <div class="field span-2">
+                <label>Nome da mãe</label>
+                <input name="mother_name" required />
+              </div>
+              <div class="field span-2">
+                <label>Nome do pai</label>
+                <input name="father_name" />
+              </div>
+              <label class="checkline">
+                <input name="has_cnh" type="checkbox" />
+                Possui CNH
+              </label>
+              <div class="field">
+                <label>Documento com foto</label>
+                <select name="id_document_type" required>
+                  <option value="RG">RG</option>
+                  <option value="CNH">CNH</option>
+                  <option value="PASSAPORTE">Passaporte</option>
+                  <option value="CARTEIRA_FUNCIONAL">Carteira funcional</option>
+                </select>
+              </div>
+              <div class="field span-2">
+                <label>Número do documento</label>
+                <input name="id_document_number" required />
+              </div>
+              <div class="field span-2">
+                <label>Arquivo do documento</label>
+                <input name="id_document_file_name" placeholder="nome do arquivo ou protocolo" />
+              </div>
+              <div class="field span-2">
+                <label>Endereço residencial</label>
+                <textarea name="residence_address" required></textarea>
+              </div>
+              <div class="field">
+                <label>Data do comprovante</label>
+                <input name="residence_proof_date" type="date" required />
+              </div>
+              <div class="field">
+                <label>Foto do condutor</label>
+                <input id="photoInput" type="file" accept="image/*" />
+              </div>
+              <h3 id="guardianTitle" class="subsection-title hidden">Responsável legal</h3>
+              <div id="guardianFields" class="span-4 form-grid hidden">
+                <div class="field span-2">
+                  <label>Nome do responsável</label>
+                  <input name="guardian_name" />
+                </div>
+                <div class="field">
+                  <label>CPF do responsável</label>
+                  <input name="guardian_cpf" inputmode="numeric" />
+                </div>
+                <div class="field">
+                  <label>Parentesco</label>
+                  <input name="guardian_relationship" />
+                </div>
+                <div class="field">
+                  <label>Telefone</label>
+                  <input name="guardian_phone" />
+                </div>
+                <div class="field span-2">
+                  <label>Documento do responsável</label>
+                  <input name="guardian_document_number" />
+                </div>
+              </div>
+              <div class="span-4">
+                <button class="btn" type="submit">Cadastrar condutor</button>
+              </div>
+            </form>
+            <div id="conductorMessage" class="message"></div>
+          </div>
+
+          <div class="panel" style="margin-top: 16px">
+            <div class="panel-header">
+              <div>
+                <h2>Condutores cadastrados</h2>
+                <p>Emissão exige prova teórica aprovada e documentos válidos.</p>
+              </div>
+            </div>
+            <div class="toolbar">
+              <div class="field">
+                <label>Buscar</label>
+                <input id="conductorSearch" placeholder="nome, CPF, identificador ou ACA" />
+              </div>
+              <button id="refreshConductors" class="btn secondary" type="button">Atualizar</button>
+            </div>
+            <div id="conductorList" class="list"></div>
+          </div>
+        </section>
+
+        <section id="equipment" class="section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Registro REMIA</h2>
+                <p>Propriedade, procedência, condutor principal e residência.</p>
+              </div>
+            </div>
+            <form id="equipmentForm" class="form-grid">
+              <div class="field span-2">
+                <label>Proprietário</label>
+                <input name="owner_name" required />
+              </div>
+              <div class="field">
+                <label>CPF/CNPJ</label>
+                <input name="owner_cpf_cnpj" inputmode="numeric" required />
+              </div>
+              <div class="field">
+                <label>Documento do proprietário</label>
+                <input name="owner_document" required />
+              </div>
+              <div class="field span-2">
+                <label>Endereço do proprietário</label>
+                <textarea name="owner_residence_address" required></textarea>
+              </div>
+              <div class="field">
+                <label>Data do comprovante</label>
+                <input name="owner_residence_proof_date" type="date" required />
+              </div>
+              <div class="field">
+                <label>Condutor principal</label>
+                <select id="equipmentConductor" name="conductor_id" required></select>
+              </div>
+              <div class="field">
+                <label>Fabricante</label>
+                <input name="manufacturer" required />
+              </div>
+              <div class="field">
+                <label>Modelo</label>
+                <input name="model" required />
+              </div>
+              <div class="field">
+                <label>Cor</label>
+                <input name="color" required />
+              </div>
+              <div class="field">
+                <label>Número de série</label>
+                <input name="serial_number" required />
+              </div>
+              <div class="field">
+                <label>Procedência</label>
+                <select name="provenance_type" required>
+                  <option value="NOTA_FISCAL">Nota fiscal</option>
+                  <option value="DECLARACAO">Declaração</option>
+                </select>
+              </div>
+              <div class="field span-2">
+                <label>Número ou referência</label>
+                <input name="provenance_document" required />
+              </div>
+              <div class="span-4">
+                <button class="btn" type="submit">Registrar equipamento</button>
+              </div>
+            </form>
+            <div id="equipmentMessage" class="message"></div>
+          </div>
+
+          <div class="panel" style="margin-top: 16px">
+            <div class="panel-header">
+              <div>
+                <h2>Equipamentos registrados</h2>
+                <p>PIA com município de Navegantes e QR Code dinâmico.</p>
+              </div>
+            </div>
+            <div class="toolbar">
+              <div class="field">
+                <label>Buscar</label>
+                <input id="equipmentSearch" placeholder="REMIA, CPF/CNPJ, série ou condutor" />
+              </div>
+              <button id="refreshEquipment" class="btn secondary" type="button">Atualizar</button>
+            </div>
+            <div id="equipmentList" class="list"></div>
+          </div>
+        </section>
+
+        <section id="credential" class="section">
+          <div id="credentialContainer" class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Credencial digital</h2>
+                <p>ACA ou PIA gerada pelo módulo administrativo.</p>
+              </div>
+            </div>
+            <div id="credentialEmpty" class="notice">Nenhuma credencial selecionada.</div>
+            <div id="credentialPreview"></div>
+          </div>
+        </section>
+
+        <section id="logs" class="section">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Logs de acesso</h2>
+                <p>Rastreabilidade de ações e consultas.</p>
+              </div>
+              <button id="refreshLogs" class="btn secondary" type="button">Atualizar</button>
+            </div>
+            <div style="overflow-x: auto">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Módulo</th>
+                    <th>Ação</th>
+                    <th>Usuário</th>
+                    <th>Detalhes</th>
+                  </tr>
+                </thead>
+                <tbody id="logsTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/shared/qrcode.js"></script>
+    <script src="/admin/app.js"></script>
+  </body>
+</html>
