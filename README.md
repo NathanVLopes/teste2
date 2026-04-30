@@ -37,7 +37,6 @@ Através de uma interface limpa e prática, é possível adicionar gastos, categ
 
 ## 👨‍💻 Autor
 
-## 👨‍💻 Autor
 
 <p align="center">
   <img src="2026-04-24/uma-ideia-para-site-para-minha/img/foto.png" width="140px" style="border-radius:50%">
