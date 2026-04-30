@@ -38,7 +38,7 @@ Através de uma interface limpa e prática, é possível adicionar gastos, categ
 ## 👨‍💻 Autor
 
 <p align="center">
-  <img src="foto.png" width="120px" style="border-radius:50%">
+  <img src="img/foto.png" width="120px" style="border-radius:50%">
   <br><br>
   <strong>Nathan Lopes</strong><br>
   🚀 Desenvolvedor em evolução
